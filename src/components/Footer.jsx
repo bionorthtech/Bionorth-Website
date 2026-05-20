@@ -6,11 +6,10 @@ export default function Footer() {
       <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "32px", flexWrap: "wrap" }}>
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-            <span style={{ width: "24px", height: "24px", position: "relative", display: "inline-block" }}>
-              <span style={{ position: "absolute", inset: 0, border: "1px solid #00D4FF44", borderRadius: "50%" }} />
-              <span style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "6px", height: "6px", background: "#00D4FF", borderRadius: "50%" }} />
+            <span style={{ width: "26px", height: "26px", borderRadius: "50%", background: "var(--grad)", display: "grid", placeItems: "center", boxShadow: "0 0 16px -3px rgba(0,212,255,0.6)" }}>
+              <span style={{ width: "7px", height: "7px", background: "#02110D", borderRadius: "50%" }} />
             </span>
-            <span className="serif" style={{ fontSize: "16px", color: "var(--muted-2)" }}>BioNorth</span>
+            <span className="display" style={{ fontWeight: 700, fontSize: "16px", color: "var(--heading)", letterSpacing: "-0.01em" }}>BioNorth</span>
           </div>
           <div className="sans" style={{ fontSize: "11px", color: "var(--faint)", lineHeight: 1.6, maxWidth: "380px" }}>
             Built by a team of high-school students. Lake Mary, Florida.<br />

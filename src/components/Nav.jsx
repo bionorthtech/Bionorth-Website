@@ -41,7 +41,8 @@ export default function Nav() {
   return (
     <>
       <nav className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
-        <button className="nav__brand" onClick={goHome} style={{ background: "none", border: "none", cursor: "pointer" }}>
+       <div className="nav__inner">
+        <button className="nav__brand" onClick={goHome}>
           <span className="nav__mark">
             <span className="nav__mark-ring" />
             <span className="nav__mark-core" />
@@ -81,6 +82,7 @@ export default function Nav() {
         >
           <span /><span /><span />
         </button>
+       </div>
       </nav>
 
       {menuOpen && (

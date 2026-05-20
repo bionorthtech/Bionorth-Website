@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EEGWave from "../components/EEGWave.jsx";
+import NeuralField from "../components/NeuralField.jsx";
 import Reveal from "../components/Reveal.jsx";
 import {
   STATS,
@@ -18,6 +19,8 @@ import {
   FUNDING_TARGETS,
 } from "../data/content.js";
 
+const img = (n) => `${import.meta.env.BASE_URL}images/${n}`;
+
 export default function Home() {
   const [activePhase, setActivePhase] = useState(0);
   const navigate = useNavigate();
@@ -32,46 +35,59 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="hero__bg-grid" />
-        <div className="hero__glow" />
-        <div className="hero__waves" style={{ bottom: 80, opacity: 0.3 }}>
-          <EEGWave height={140} color="#00D4FF" opacity={0.8} />
+        <div className="hero__glow"><NeuralField opacity={0.5} /></div>
+        <div className="orb orb--cyan" style={{ width: 520, height: 520, top: -140, left: -120 }} />
+        <div className="orb orb--green" style={{ width: 460, height: 460, bottom: -120, right: -80 }} />
+        <div className="hero__waves" style={{ bottom: 70, opacity: 0.35 }}>
+          <EEGWave height={150} from="#00D4FF" to="#00FF88" opacity={0.8} />
         </div>
-        <div className="hero__waves" style={{ bottom: 40, opacity: 0.15 }}>
-          <EEGWave height={100} color="#4488FF" opacity={0.6} />
-        </div>
-
-        <div style={{ position: "relative", maxWidth: "820px" }}>
-          <div className="mono fade-up" style={{ fontSize: "10px", letterSpacing: "4px", color: "var(--accent)", marginBottom: "24px" }}>
-            BIONORTH TECH — PATENT PENDING
-          </div>
-          <h1 className="serif neural-glow fade-up" style={{ fontSize: "clamp(40px, 6vw, 80px)", lineHeight: 1.05, color: "var(--heading)", marginBottom: "24px", animationDelay: "0.1s" }}>
-            Restoring Movement<br />
-            <em style={{ color: "var(--accent)" }}>Through Neural Intelligence</em>
-          </h1>
-          <p className="sans fade-up" style={{ fontSize: "clamp(16px, 2vw, 18px)", color: "var(--muted)", lineHeight: 1.7, maxWidth: "580px", marginBottom: "40px", fontWeight: 300, animationDelay: "0.25s" }}>
-            BioNorth is a closed-loop brain-computer interface that detects when the brain's
-            movement command fails to reach the muscle — and intervenes with precision
-            electrical stimulation to restore gait in patients with Parkinson's disease.
-          </p>
-          <div className="fade-up" style={{ display: "flex", gap: "16px", flexWrap: "wrap", animationDelay: "0.4s" }}>
-            <button onClick={() => scrollTo("#solution")} className="btn btn--primary">See How It Works</button>
-            <button onClick={() => scrollTo("#connect")} className="btn btn--ghost">Get Involved</button>
-          </div>
+        <div className="hero__waves" style={{ bottom: 30, opacity: 0.18 }}>
+          <EEGWave height={110} from="#1f6feb" to="#00D4FF" opacity={0.6} />
         </div>
 
-        <div className="hero__badge">
-          <div className="mono" style={{ fontSize: "8px", color: "#00D4FF66", letterSpacing: "2px", marginBottom: "4px" }}>SYSTEM STATUS</div>
-          <div className="mono" style={{ fontSize: "11px", color: "var(--accent)", letterSpacing: "1px" }}>PHASE 0 — ACTIVE</div>
-          <div className="sans" style={{ fontSize: "10px", color: "var(--muted-3)", marginTop: "4px" }}>Prototype Stabilization</div>
+        <div className="container--wide hero__grid">
+          <div>
+            <div className="eyebrow fade-up">BioNorth Tech · Patent Pending</div>
+            <h1 className="fade-up" style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: "clamp(40px, 6vw, 82px)", lineHeight: 1.04, letterSpacing: "-0.03em", color: "var(--heading)", margin: "10px 0 22px", animationDelay: "0.1s" }}>
+              Restoring movement<br />
+              <span className="grad-text">through neural intelligence</span>
+            </h1>
+            <p className="sans fade-up" style={{ fontSize: "clamp(16px, 2vw, 18px)", color: "var(--muted)", lineHeight: 1.7, maxWidth: "540px", marginBottom: "32px", fontWeight: 300, animationDelay: "0.22s" }}>
+              BioNorth is a closed-loop brain-computer interface that detects when the brain's
+              movement command fails to reach the muscle — and intervenes with precision
+              electrical stimulation to restore gait in patients with Parkinson's disease.
+            </p>
+            <div className="fade-up" style={{ display: "flex", gap: "14px", flexWrap: "wrap", marginBottom: "28px", animationDelay: "0.34s" }}>
+              <button onClick={() => scrollTo("#solution")} className="btn btn--primary">See How It Works</button>
+              <button onClick={() => scrollTo("#connect")} className="btn btn--ghost">Get Involved</button>
+            </div>
+            <div className="pill-row fade-up" style={{ animationDelay: "0.46s" }}>
+              <span className="pill"><span className="dot" />CLOSED-LOOP BCI</span>
+              <span className="pill"><span className="dot" />EEG · EMG · FES</span>
+              <span className="pill"><span className="dot" />PHASE 0 — ACTIVE</span>
+            </div>
+          </div>
+
+          <div className="hero__visual fade-up" style={{ animationDelay: "0.3s" }}>
+            <div className="media" style={{ aspectRatio: "4 / 5" }}>
+              <img src={img("brain-neuron.jpg")} alt="Anatomical model of a human brain beside a neuron" />
+            </div>
+            <div className="glass" style={{ position: "absolute", left: "-14px", bottom: "26px", padding: "16px 18px", borderRadius: "var(--r)", maxWidth: "210px" }}>
+              <div className="mono" style={{ fontSize: "9px", color: "#5fe6e0", letterSpacing: "2px", marginBottom: "6px" }}>THE TARGET</div>
+              <div className="sans" style={{ fontSize: "13px", color: "var(--heading)", lineHeight: 1.4 }}>
+                Detecting the <span className="grad-text" style={{ fontWeight: 700 }}>movement-failure</span> state — not intent alone.
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* STATS */}
-      <section className="section section--alt section--bordered" style={{ padding: "60px 64px" }}>
-        <div className="grid grid-4" style={{ maxWidth: "1000px", margin: "0 auto", gap: "40px" }}>
+      <section className="section section--alt section--bordered" style={{ padding: "64px" }}>
+        <div className="grid grid-4" style={{ maxWidth: "1080px", margin: "0 auto" }}>
           {STATS.map((s, i) => (
-            <Reveal key={i} delay={i * 0.08} style={{ textAlign: "center" }}>
-              <div className="serif neural-glow" style={{ fontSize: "clamp(34px, 5vw, 42px)", color: "var(--accent)", marginBottom: "8px" }}>{s.value}</div>
+            <Reveal key={i} delay={i * 0.08} className="card glass" style={{ textAlign: "center", padding: "28px 20px" }}>
+              <div className="grad-text" style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: "clamp(34px, 5vw, 46px)", marginBottom: "8px", letterSpacing: "-0.02em" }}>{s.value}</div>
               <div className="sans" style={{ fontSize: "12px", color: "var(--muted-3)", lineHeight: 1.5 }}>{s.label}</div>
             </Reveal>
           ))}
@@ -80,10 +96,11 @@ export default function Home() {
 
       {/* PROBLEM */}
       <section id="problem" className="section">
+        <div className="orb orb--cyan" style={{ width: 380, height: 380, top: 40, right: -120, opacity: 0.25 }} />
         <div className="container">
-          <div className="eyebrow">01 — THE PROBLEM</div>
+          <div className="eyebrow">01 — The Problem</div>
           <div className="section-divider" />
-          <h2 className="section-title" style={{ maxWidth: "640px" }}>
+          <h2 className="section-title" style={{ maxWidth: "660px" }}>
             Frozen in place.<br />
             <em>The brain fires. The body doesn't move.</em>
           </h2>
@@ -106,10 +123,10 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="mono" style={{ fontSize: "9px", color: "#00D4FF66", letterSpacing: "2px", marginBottom: "16px" }}>EXISTING APPROACHES — AND WHY THEY FALL SHORT</div>
+              <div className="mono" style={{ fontSize: "9px", color: "#00D4FF99", letterSpacing: "2px", marginBottom: "16px" }}>EXISTING APPROACHES — AND WHY THEY FALL SHORT</div>
               {EXISTING_APPROACHES.map((item, i) => (
-                <div key={i} style={{ padding: "12px 16px", borderLeft: "2px solid #FF444433", marginBottom: "8px", background: "#FF440408" }}>
-                  <div className="sans" style={{ fontSize: "12px", color: "#DDD", fontWeight: 600, marginBottom: "4px" }}>{item.name}</div>
+                <div key={i} style={{ padding: "14px 18px", borderRadius: "var(--r)", border: "1px solid rgba(255,90,90,0.16)", marginBottom: "10px", background: "rgba(255,80,80,0.04)" }}>
+                  <div className="sans" style={{ fontSize: "12px", color: "#EEE", fontWeight: 600, marginBottom: "4px" }}>{item.name}</div>
                   <div className="sans" style={{ fontSize: "11px", color: "var(--muted-3)", lineHeight: 1.5 }}>{item.gap}</div>
                 </div>
               ))}
@@ -120,12 +137,13 @@ export default function Home() {
 
       {/* SOLUTION */}
       <section id="solution" className="section section--alt">
+        <div className="orb orb--green" style={{ width: 420, height: 420, top: -80, left: -120, opacity: 0.3 }} />
         <div className="container">
-          <div className="eyebrow">02 — THE SOLUTION</div>
+          <div className="eyebrow">02 — The Solution</div>
           <div className="section-divider" />
           <h2 className="section-title" style={{ maxWidth: "720px" }}>
             Detect the failure.<br />
-            <em style={{ color: "var(--accent)" }}>Not just the intention.</em>
+            <em><span className="grad-text">Not just the intention.</span></em>
           </h2>
           <p className="section-lead">
             BioNorth is designed to detect the specific failure state — motor intent present but muscle
@@ -133,11 +151,11 @@ export default function Home() {
             is confirmed.
           </p>
 
-          <div className="grid grid-5" style={{ gap: 0 }}>
+          <div className="grid grid-5">
             {HOW_IT_WORKS.map((step, i) => (
-              <Reveal key={i} delay={i * 0.06} style={{ padding: "28px 20px", borderLeft: "1px solid var(--border-soft)" }}>
-                <div style={{ fontSize: "28px", marginBottom: "12px" }}>{step.icon}</div>
-                <div className="mono" style={{ fontSize: "8px", color: "#00D4FF55", letterSpacing: "2px", marginBottom: "8px" }}>STEP {step.step}</div>
+              <Reveal key={i} delay={i * 0.06} className="card" style={{ padding: "24px 20px" }}>
+                <div style={{ fontSize: "26px", marginBottom: "12px" }}>{step.icon}</div>
+                <div className="mono" style={{ fontSize: "8px", color: "#00D4FF99", letterSpacing: "2px", marginBottom: "8px" }}>STEP {step.step}</div>
                 <div className="sans" style={{ fontSize: "13px", color: "var(--text)", fontWeight: 600, marginBottom: "10px", lineHeight: 1.3 }}>{step.title}</div>
                 <div className="sans" style={{ fontSize: "11px", color: "var(--muted-3)", lineHeight: 1.6 }}>{step.body}</div>
               </Reveal>
@@ -147,8 +165,8 @@ export default function Home() {
           <Reveal>
             <div className="distinction">
               <div style={{ flexShrink: 0 }}>
-                <div className="mono" style={{ fontSize: "9px", color: "#00D4FF88", letterSpacing: "2px", marginBottom: "8px" }}>KEY DISTINCTION</div>
-                <div className="serif" style={{ fontSize: "22px", color: "var(--accent)" }}>Patent Pending</div>
+                <div className="mono" style={{ fontSize: "9px", color: "#5fe6e0", letterSpacing: "2px", marginBottom: "8px" }}>KEY DISTINCTION</div>
+                <div className="grad-text" style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: "26px" }}>Patent Pending</div>
               </div>
               <div className="sans" style={{ fontSize: "14px", color: "var(--muted)", lineHeight: 1.7 }}>
                 Every prior BCI-FES system triggers stimulation when motor intent is detected. BioNorth
@@ -166,44 +184,51 @@ export default function Home() {
       {/* TECHNOLOGY */}
       <section id="technology" className="section">
         <div className="container">
-          <div className="eyebrow">03 — TECHNOLOGY</div>
-          <div className="section-divider" />
-          <h2 className="section-title">
-            Two wearable units.<br />
-            <em>One closed loop.</em>
-          </h2>
-          <p className="section-lead">
-            The production architecture pairs a headset EEG unit with a leg-band EMG + FES unit,
-            communicating wirelessly. The system operates standalone — no phone or laptop required.
-          </p>
+          <div className="grid grid-2" style={{ gap: "52px", alignItems: "center", marginBottom: "52px" }}>
+            <div>
+              <div className="eyebrow">03 — Technology</div>
+              <div className="section-divider" />
+              <h2 className="section-title">
+                Two wearable units.<br />
+                <em>One closed loop.</em>
+              </h2>
+              <p className="section-lead" style={{ marginBottom: 0 }}>
+                The production architecture pairs a headset EEG unit with a leg-band EMG + FES unit,
+                communicating wirelessly. The system operates standalone — no phone or laptop required.
+              </p>
+            </div>
+            <Reveal className="media" style={{ aspectRatio: "4 / 3" }}>
+              <img src={img("circuit.jpg")} alt="Close-up of a circuit board with processor and components" loading="lazy" />
+            </Reveal>
+          </div>
 
           <div className="grid grid-2">
             {TECH_SPECS.map((spec, i) => (
               <Reveal key={i} delay={(i % 2) * 0.08} className="card">
-                <div className="mono" style={{ fontSize: "9px", color: "#00D4FF66", letterSpacing: "2px", marginBottom: "12px" }}>{spec.component.toUpperCase()}</div>
+                <div className="mono" style={{ fontSize: "9px", color: "#5fe6e0", letterSpacing: "2px", marginBottom: "14px" }}>{spec.component.toUpperCase()}</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "16px" }}>
                   <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                    <span className="mono" style={{ fontSize: "9px", color: "#FF8C0088", letterSpacing: "1px" }}>NOW</span>
+                    <span className="mono" style={{ fontSize: "9px", color: "#FF8C0099", letterSpacing: "1px" }}>NOW</span>
                     <span className="sans" style={{ fontSize: "12px", color: "var(--muted-2)" }}>{spec.current}</span>
                   </div>
                   <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                    <span className="mono" style={{ fontSize: "9px", color: "#00D4FF88", letterSpacing: "1px" }}>TARGET</span>
-                    <span className="sans" style={{ fontSize: "12px", color: "#BBB" }}>{spec.target}</span>
+                    <span className="mono" style={{ fontSize: "9px", color: "#00D4FFcc", letterSpacing: "1px" }}>TARGET</span>
+                    <span className="sans" style={{ fontSize: "12px", color: "#CFCFC8" }}>{spec.target}</span>
                   </div>
                 </div>
                 {spec.bands.map((b, j) => (
-                  <div key={j} className="mono" style={{ fontSize: "11px", color: "var(--muted-3)", padding: "5px 0", borderTop: "1px solid var(--border-soft)" }}>{b}</div>
+                  <div key={j} className="mono" style={{ fontSize: "11px", color: "var(--muted-3)", padding: "6px 0", borderTop: "1px solid var(--border-soft)" }}>{b}</div>
                 ))}
-                <div style={{ marginTop: "12px", padding: "8px 10px", background: "#00D4FF08", border: "1px solid #00D4FF11" }}>
-                  <span className="mono" style={{ fontSize: "9px", color: "#00D4FF66" }}>PLACEMENT — </span>
+                <div style={{ marginTop: "14px", padding: "10px 12px", borderRadius: "var(--r-sm)", background: "rgba(0,212,255,0.05)", border: "1px solid rgba(0,212,255,0.1)" }}>
+                  <span className="mono" style={{ fontSize: "9px", color: "#5fe6e0" }}>PLACEMENT — </span>
                   <span className="sans" style={{ fontSize: "11px", color: "var(--muted-2)" }}>{spec.placement}</span>
                 </div>
               </Reveal>
             ))}
           </div>
 
-          <Reveal style={{ marginTop: "40px", padding: "24px", borderLeft: "2px solid #00D4FF33" }}>
-            <div className="mono" style={{ fontSize: "9px", color: "#00D4FF66", letterSpacing: "2px", marginBottom: "8px" }}>SIGNAL CHAIN</div>
+          <Reveal className="card" style={{ marginTop: "32px", borderLeft: "3px solid transparent", borderImage: "var(--grad) 1", background: "linear-gradient(90deg, rgba(0,212,255,0.05), transparent)" }}>
+            <div className="mono" style={{ fontSize: "9px", color: "#5fe6e0", letterSpacing: "2px", marginBottom: "10px" }}>SIGNAL CHAIN</div>
             <div className="mono" style={{ fontSize: "11px", color: "var(--muted-3)", lineHeight: 2.2 }}>
               Motor Cortex → Scalp EEG (Cz/FCz/Fz) → ADS1299 ADC → nRF5340 DSP → Butterworth Filters →
               Band Power (θ/μ/β) → State Machine → [IF FREEZING] → I2C/SPI FES Driver → Constant-Current
@@ -216,27 +241,34 @@ export default function Home() {
       {/* SCIENCE */}
       <section id="science" className="section section--alt">
         <div className="container">
-          <div className="eyebrow">04 — THE SCIENCE</div>
-          <div className="section-divider" />
-          <h2 className="section-title">
-            Grounded in neuroscience.<br />
-            <em>Built from first principles.</em>
-          </h2>
-          <p className="section-lead">
-            BioNorth's detection logic is built on established neurophysiological findings from movement-disorder
-            research. Every design decision traces to a peer-reviewed basis.
-          </p>
+          <div className="grid grid-2" style={{ gap: "52px", alignItems: "center", marginBottom: "52px" }}>
+            <Reveal className="media" style={{ aspectRatio: "4 / 3", order: 0 }}>
+              <img src={img("cells.jpg")} alt="Fluorescent microscopy of cells in blue and magenta" loading="lazy" />
+            </Reveal>
+            <div>
+              <div className="eyebrow">04 — The Science</div>
+              <div className="section-divider" />
+              <h2 className="section-title">
+                Grounded in neuroscience.<br />
+                <em>Built from first principles.</em>
+              </h2>
+              <p className="section-lead" style={{ marginBottom: 0 }}>
+                BioNorth's detection logic is built on established neurophysiological findings from
+                movement-disorder research. Every design decision traces to a peer-reviewed basis.
+              </p>
+            </div>
+          </div>
 
           <div className="grid grid-2">
             {SCIENCE_REFS.map((ref, i) => (
               <Reveal key={i} delay={(i % 2) * 0.08} className="card">
-                <div className="mono" style={{ fontSize: "8px", color: "#00D4FF44", letterSpacing: "2px", marginBottom: "12px" }}>FINDING {String(i + 1).padStart(2, "0")}</div>
-                <p className="sans" style={{ fontSize: "13px", color: "var(--muted)", lineHeight: 1.7, marginBottom: "16px", fontStyle: "italic", borderLeft: "2px solid #333", paddingLeft: "12px" }}>
+                <div className="mono" style={{ fontSize: "8px", color: "#00D4FF77", letterSpacing: "2px", marginBottom: "12px" }}>FINDING {String(i + 1).padStart(2, "0")}</div>
+                <p className="sans" style={{ fontSize: "13px", color: "var(--muted)", lineHeight: 1.7, marginBottom: "16px", fontStyle: "italic", borderLeft: "2px solid", borderImage: "var(--grad) 1", paddingLeft: "14px" }}>
                   "{ref.finding}"
                 </p>
-                <div style={{ display: "flex", gap: "8px" }}>
-                  <div style={{ width: "16px", height: "16px", background: "#00D4FF22", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "1px" }}>
-                    <span style={{ fontSize: "8px", color: "var(--accent)" }}>→</span>
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <div style={{ width: "18px", height: "18px", borderRadius: "6px", background: "rgba(0,212,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "1px" }}>
+                    <span style={{ fontSize: "9px", color: "var(--accent)" }}>→</span>
                   </div>
                   <p className="sans" style={{ fontSize: "12px", color: "var(--muted-3)", lineHeight: 1.6 }}>{ref.application}</p>
                 </div>
@@ -244,14 +276,14 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="grid grid-4" style={{ marginTop: "40px", gap: "1px", background: "var(--border-soft)" }}>
+          <div className="grid grid-4" style={{ marginTop: "32px" }}>
             {EEG_BANDS.map((b, i) => (
-              <div key={i} style={{ padding: "24px", background: "var(--bg-2)" }}>
-                <div className="mono" style={{ fontSize: "9px", letterSpacing: "2px", color: b.color, marginBottom: "6px" }}>{b.band}</div>
+              <Reveal key={i} delay={i * 0.06} className="card" style={{ padding: "22px" }}>
+                <div className="mono" style={{ fontSize: "10px", letterSpacing: "2px", color: b.color, marginBottom: "6px" }}>{b.band}</div>
                 <div className="mono" style={{ fontSize: "11px", color: "#555", marginBottom: "10px" }}>{b.hz}</div>
                 <div className="sans" style={{ fontSize: "12px", color: "#DDD", fontWeight: 600, marginBottom: "8px" }}>{b.role}</div>
                 <div className="sans" style={{ fontSize: "11px", color: "var(--muted-3)", lineHeight: 1.5 }}>{b.detail}</div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -260,7 +292,7 @@ export default function Home() {
       {/* DEVELOPMENT */}
       <section id="development" className="section">
         <div className="container">
-          <div className="eyebrow">05 — DEVELOPMENT STATUS</div>
+          <div className="eyebrow">05 — Development Status</div>
           <div className="section-divider" />
           <h2 className="section-title">
             Prototype to product.<br />
@@ -277,8 +309,8 @@ export default function Home() {
                 onClick={() => setActivePhase(i)}
                 className="phase-tab"
                 style={{
-                  background: activePhase === i ? "var(--bg-3)" : "transparent",
-                  borderBottom: activePhase === i ? "2px solid var(--accent)" : "2px solid var(--border)",
+                  background: activePhase === i ? "rgba(0,212,255,0.08)" : "rgba(255,255,255,0.015)",
+                  borderColor: activePhase === i ? "#00D4FF55" : "var(--border)",
                 }}
               >
                 <div className="mono" style={{ fontSize: "8px", color: phase.status === "IN PROGRESS" ? "var(--accent-green)" : "var(--faint)", letterSpacing: "1px", marginBottom: "6px" }}>
@@ -290,11 +322,11 @@ export default function Home() {
             ))}
           </div>
 
-          <div style={{ padding: "32px", background: "var(--bg-3)", border: "1px solid var(--border)", borderTop: "none" }}>
+          <div className="phase-panel">
             <div className="grid grid-3" style={{ gap: "8px" }}>
               {PHASES[activePhase].items.map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start", padding: "10px 0" }}>
-                  <div style={{ width: "16px", height: "16px", background: "#00D4FF11", border: "1px solid #00D4FF22", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "1px" }}>
+                  <div style={{ width: "18px", height: "18px", borderRadius: "6px", background: "rgba(0,212,255,0.1)", border: "1px solid rgba(0,212,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "1px" }}>
                     <span style={{ color: "var(--accent)", fontSize: "8px" }}>▸</span>
                   </div>
                   <span className="sans" style={{ fontSize: "12px", color: "var(--muted-2)", lineHeight: 1.5 }}>{item}</span>
@@ -303,11 +335,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-3" style={{ marginTop: "40px" }}>
+          <div className="grid grid-3" style={{ marginTop: "32px" }}>
             {ROADMAP_METRICS.map((m, i) => (
-              <Reveal key={i} delay={i * 0.08} style={{ padding: "20px", border: "1px solid var(--border)" }}>
+              <Reveal key={i} delay={i * 0.08} className="card">
                 <div className="mono" style={{ fontSize: "9px", color: "var(--faint)", letterSpacing: "1px", marginBottom: "8px" }}>{m.label}</div>
-                <div className="serif" style={{ fontSize: "24px", color: "var(--accent)", marginBottom: "4px" }}>{m.value}</div>
+                <div className="grad-text" style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: "26px", marginBottom: "4px" }}>{m.value}</div>
                 <div className="sans" style={{ fontSize: "11px", color: "#555" }}>{m.note}</div>
               </Reveal>
             ))}
@@ -317,14 +349,15 @@ export default function Home() {
 
       {/* TEAM */}
       <section id="team" className="section section--alt">
+        <div className="orb orb--green" style={{ width: 420, height: 420, bottom: -120, right: -120, opacity: 0.25 }} />
         <div className="container">
-          <div className="eyebrow">06 — THE TEAM</div>
+          <div className="eyebrow">06 — The Team</div>
           <div className="section-divider" />
-          <div className="grid grid-2" style={{ gap: "80px", alignItems: "center" }}>
+          <div className="grid grid-2" style={{ gap: "64px", alignItems: "center" }}>
             <Reveal>
               <h2 className="section-title" style={{ marginBottom: "24px" }}>
                 Built by high-school students.<br />
-                <em>For people who can't walk.</em>
+                <em><span className="grad-text">For people who can't walk.</span></em>
               </h2>
               <p className="sans" style={{ color: "var(--muted)", lineHeight: 1.8, marginBottom: "20px", fontSize: "15px" }}>
                 BioNorth is the work of a team of high-school students who came together to build it from the
@@ -342,9 +375,12 @@ export default function Home() {
               </p>
             </Reveal>
 
-            <div style={{ display: "grid", gap: "16px" }}>
+            <div style={{ display: "grid", gap: "18px" }}>
+              <Reveal className="media" style={{ aspectRatio: "16 / 9" }}>
+                <img src={img("lab.jpg")} alt="Researcher pipetting samples in a laboratory" loading="lazy" />
+              </Reveal>
               <div className="card">
-                <div className="mono" style={{ fontSize: "9px", color: "#00D4FF66", letterSpacing: "2px", marginBottom: "16px" }}>WHERE WE STAND</div>
+                <div className="mono" style={{ fontSize: "9px", color: "#5fe6e0", letterSpacing: "2px", marginBottom: "16px" }}>WHERE WE STAND</div>
                 {TEAM_HIGHLIGHTS.map((h, i) => (
                   <div key={i} style={{ padding: "10px 0", borderBottom: i < TEAM_HIGHLIGHTS.length - 1 ? "1px solid var(--border-soft)" : "none" }}>
                     <div className="sans" style={{ fontSize: "13px", color: "var(--heading)", fontWeight: 600, marginBottom: "3px" }}>{h.label}</div>
@@ -355,7 +391,7 @@ export default function Home() {
 
               <div className="card" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
                 <div>
-                  <div className="mono" style={{ fontSize: "9px", color: "#00D4FF66", letterSpacing: "2px", marginBottom: "12px" }}>IP STATUS</div>
+                  <div className="mono" style={{ fontSize: "9px", color: "#5fe6e0", letterSpacing: "2px", marginBottom: "12px" }}>IP STATUS</div>
                   {IP_STATUS.map((ip, i) => (
                     <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "7px 0", borderBottom: "1px solid var(--border-soft)", gap: "8px" }}>
                       <span className="sans" style={{ fontSize: "11px", color: "var(--muted-2)" }}>{ip.label}</span>
@@ -364,7 +400,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div>
-                  <div className="mono" style={{ fontSize: "9px", color: "#00D4FF66", letterSpacing: "2px", marginBottom: "12px" }}>CURRENT HARDWARE</div>
+                  <div className="mono" style={{ fontSize: "9px", color: "#5fe6e0", letterSpacing: "2px", marginBottom: "12px" }}>CURRENT HARDWARE</div>
                   {CURRENT_HARDWARE.map((hw, i) => (
                     <div key={i} className="mono" style={{ fontSize: "10px", color: "#555", padding: "5px 0", borderBottom: "1px solid #0A0D14", lineHeight: 1.4 }}>· {hw}</div>
                   ))}
@@ -377,12 +413,13 @@ export default function Home() {
 
       {/* CONNECT */}
       <section id="connect" className="section">
+        <div className="orb orb--cyan" style={{ width: 460, height: 460, top: -120, left: "40%", opacity: 0.22 }} />
         <div className="container">
-          <div className="eyebrow">07 — CONNECT WITH US</div>
+          <div className="eyebrow">07 — Connect With Us</div>
           <div className="section-divider" />
           <h2 className="section-title">
             This device doesn't exist yet.<br />
-            <em style={{ color: "var(--accent)" }}>Help us build it.</em>
+            <em><span className="grad-text">Help us build it.</span></em>
           </h2>
           <p className="section-lead">
             BioNorth is actively seeking clinical research partners, biomedical-engineering mentors, and
@@ -390,13 +427,13 @@ export default function Home() {
             medical-device investment, we'd love to hear from you.
           </p>
 
-          <div className="grid grid-3" style={{ marginBottom: "40px" }}>
+          <div className="grid grid-3" style={{ marginBottom: "20px" }}>
             {CONNECT_CARDS.map((card, i) => (
-              <Reveal key={i} delay={i * 0.08} style={{ padding: "32px", border: `1px solid ${card.color}22`, background: `${card.color}04` }}>
-                <div style={{ width: "32px", height: "2px", background: card.color, marginBottom: "20px" }} />
+              <Reveal key={i} delay={i * 0.08} className="card" style={{ borderColor: `${card.color}22`, background: `linear-gradient(180deg, ${card.color}0a, transparent)` }}>
+                <div style={{ width: "36px", height: "3px", borderRadius: "999px", background: card.color, marginBottom: "20px" }} />
                 <div className="sans" style={{ fontSize: "15px", color: "var(--heading)", fontWeight: 600, marginBottom: "12px" }}>{card.title}</div>
-                <p className="sans" style={{ fontSize: "12px", color: "#777", lineHeight: 1.7, marginBottom: "24px" }}>{card.desc}</p>
-                <a className="sans" href="mailto:biotech@bionorth.us" style={{ display: "block", textAlign: "center", border: `1px solid ${card.color}44`, color: card.color, padding: "10px 16px", fontSize: "11px", letterSpacing: "0.5px" }}>
+                <p className="sans" style={{ fontSize: "12px", color: "#888", lineHeight: 1.7, marginBottom: "24px" }}>{card.desc}</p>
+                <a className="sans" href="mailto:biotech@bionorth.us" style={{ display: "block", textAlign: "center", borderRadius: "var(--r-pill)", border: `1px solid ${card.color}55`, color: card.color, padding: "11px 16px", fontSize: "11px", letterSpacing: "0.5px", fontWeight: 600 }}>
                   {card.action} →
                 </a>
               </Reveal>
@@ -404,27 +441,32 @@ export default function Home() {
           </div>
 
           {/* Direct contact */}
-          <Reveal className="card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "24px", marginBottom: "40px" }}>
-            <div>
-              <div className="serif" style={{ fontSize: "22px", color: "var(--heading)", marginBottom: "8px" }}>Reach out directly</div>
-              <div className="sans" style={{ fontSize: "13px", color: "var(--muted-3)", lineHeight: 1.6 }}>
-                Email us, follow our work on GitHub, and watch for more projects coming soon.
+          <Reveal className="card" style={{ overflow: "hidden", padding: 0, marginBottom: "20px" }}>
+            <div className="grid grid-2" style={{ gap: 0, alignItems: "stretch" }}>
+              <div style={{ padding: "36px" }}>
+                <div className="display" style={{ fontWeight: 700, fontSize: "26px", color: "var(--heading)", marginBottom: "10px", letterSpacing: "-0.02em" }}>Reach out directly</div>
+                <div className="sans" style={{ fontSize: "13px", color: "var(--muted-3)", lineHeight: 1.6, marginBottom: "24px" }}>
+                  Email us, follow our work on GitHub, and watch for more projects coming soon.
+                </div>
+                <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                  <a href="mailto:biotech@bionorth.us" className="btn btn--primary">biotech@bionorth.us</a>
+                  <a href="https://github.com/bionorthtech" target="_blank" rel="noreferrer" className="btn btn--ghost">GitHub →</a>
+                  <button onClick={() => navigate("/side-projects")} className="btn btn--ghost">Side Projects →</button>
+                </div>
               </div>
-            </div>
-            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              <a href="mailto:biotech@bionorth.us" className="btn btn--primary">biotech@bionorth.us</a>
-              <a href="https://github.com/bionorthtech" target="_blank" rel="noreferrer" className="btn btn--ghost">GitHub →</a>
-              <button onClick={() => navigate("/side-projects")} className="btn btn--ghost">Side Projects →</button>
+              <div className="media" style={{ borderRadius: 0, border: "none", boxShadow: "none", minHeight: "220px" }}>
+                <img src={img("silhouette.jpg")} alt="Silhouette of a standing person against a colorful gradient" loading="lazy" />
+              </div>
             </div>
           </Reveal>
 
-          <Reveal style={{ padding: "32px", border: "1px solid var(--border)", background: "var(--bg-3)" }}>
-            <div className="mono" style={{ fontSize: "9px", color: "#00D4FF66", letterSpacing: "2px", marginBottom: "20px" }}>FUNDING TARGETS BY PHASE</div>
+          <Reveal className="card">
+            <div className="mono" style={{ fontSize: "9px", color: "#5fe6e0", letterSpacing: "2px", marginBottom: "20px" }}>FUNDING TARGETS BY PHASE</div>
             <div className="grid grid-5">
               {FUNDING_TARGETS.map((f, i) => (
-                <div key={i} style={{ textAlign: "center", padding: "16px" }}>
+                <div key={i} style={{ textAlign: "center", padding: "12px" }}>
                   <div className="mono" style={{ fontSize: "8px", color: "var(--faint)", letterSpacing: "1px", marginBottom: "8px" }}>{f.phase}</div>
-                  <div className="serif" style={{ fontSize: "22px", color: f.color, marginBottom: "6px" }}>{f.amount}</div>
+                  <div className="display" style={{ fontWeight: 700, fontSize: "22px", color: f.color, marginBottom: "6px" }}>{f.amount}</div>
                   <div className="sans" style={{ fontSize: "10px", color: "#555", lineHeight: 1.4 }}>{f.source}</div>
                 </div>
               ))}

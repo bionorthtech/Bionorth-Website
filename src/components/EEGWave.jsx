@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function EEGWave({ height = 120, color = "#00D4FF", opacity = 0.4 }) {
+export default function EEGWave({ height = 120, from = "#00D4FF", to = "#00FF88", opacity = 0.4 }) {
   const canvasRef = useRef(null);
   const animRef = useRef(null);
   const timeRef = useRef(0);
@@ -26,7 +26,10 @@ export default function EEGWave({ height = 120, color = "#00D4FF", opacity = 0.4
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle = color;
+      const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
+      grad.addColorStop(0, from);
+      grad.addColorStop(1, to);
+      ctx.strokeStyle = grad;
       ctx.globalAlpha = opacity;
       ctx.lineWidth = 1.5;
       ctx.beginPath();
@@ -48,7 +51,7 @@ export default function EEGWave({ height = 120, color = "#00D4FF", opacity = 0.4
       cancelAnimationFrame(animRef.current);
       window.removeEventListener("resize", resize);
     };
-  }, [color, opacity, height]);
+  }, [from, to, opacity, height]);
 
   return (
     <canvas
