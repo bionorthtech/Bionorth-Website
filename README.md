@@ -36,7 +36,7 @@ src/
 ## Deployment
 
 Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds the site and publishes
-it to GitHub Pages at `https://bionorthtech.github.io/Our-Website/`.
+it to GitHub Pages at `https://bionorthtech.github.io/BioNorth-Main/`.
 
 **One-time setup:** in repo **Settings → Pages**, set **Source = "GitHub Actions"**.
 
