@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import BrandLogo from "./BrandLogo.jsx";
 
 const HASH_LINKS = [
   { label: "Solution", href: "#solution" },
   { label: "Technology", href: "#technology" },
   { label: "Science", href: "#science" },
   { label: "Roadmap", href: "#development" },
-  { label: "Team", href: "#team" },
 ];
 
 export default function Nav() {
@@ -43,10 +43,7 @@ export default function Nav() {
       <nav className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
        <div className="nav__inner">
         <button className="nav__brand" onClick={goHome}>
-          <span className="nav__mark">
-            <span className="nav__mark-ring" />
-            <span className="nav__mark-core" />
-          </span>
+          <BrandLogo size={34} className="nav__logo" />
           <span className="nav__name">BioNorth</span>
           <span className="nav__tag">NEURAL</span>
         </button>
@@ -58,15 +55,33 @@ export default function Nav() {
             </button>
           ))}
           <Link
+            to="/team"
+            className={`nav__link ${location.pathname === "/team" ? "nav__link--active" : ""}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Team
+          </Link>
+          <Link
+            to="/our-product"
+            className={`nav__link ${location.pathname === "/our-product" ? "nav__link--active" : ""}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Our Product
+          </Link>
+          <Link
             to="/side-projects"
             className={`nav__link ${location.pathname === "/side-projects" ? "nav__link--active" : ""}`}
             onClick={() => setMenuOpen(false)}
           >
             Side Projects
           </Link>
-          <button className="nav__link" onClick={() => goToSection("#connect")}>
-            Connect
-          </button>
+          <Link
+            to="/contact"
+            className={`nav__link ${location.pathname === "/contact" ? "nav__link--active" : ""}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact
+          </Link>
         </div>
 
         <div className="nav__status">
@@ -92,12 +107,22 @@ export default function Nav() {
               {l.label}
             </button>
           ))}
+          <Link to="/team" className="nav__link" onClick={() => setMenuOpen(false)}>
+            Team
+          </Link>
+          <Link to="/our-product" className="nav__link" onClick={() => setMenuOpen(false)}>
+            Our Product
+          </Link>
           <Link to="/side-projects" className="nav__link" onClick={() => setMenuOpen(false)}>
             Side Projects
           </Link>
-          <button className="nav__link" onClick={() => goToSection("#connect")}>
-            Connect
-          </button>
+          <Link
+            to="/contact"
+            className={`nav__link ${location.pathname === "/contact" ? "nav__link--active" : ""}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact
+          </Link>
         </div>
       )}
     </>

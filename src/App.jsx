@@ -3,6 +3,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Nav from "./components/Nav.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
+import OurProduct from "./pages/OurProduct.jsx";
+import Team from "./pages/Team.jsx";
+import Contact from "./pages/Contact.jsx";
 import SideProjects from "./pages/SideProjects.jsx";
 
 function ScrollManager() {
@@ -29,6 +32,9 @@ export default function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/our-product" element={<OurProduct />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/side-projects" element={<SideProjects />} />
         <Route path="*" element={<Home />} />
       </Routes>

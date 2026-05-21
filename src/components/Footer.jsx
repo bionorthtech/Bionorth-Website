@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FOOTER_LEGAL } from "../data/content.js";
+import BrandLogo from "./BrandLogo.jsx";
 
 export default function Footer() {
   return (
@@ -7,9 +8,7 @@ export default function Footer() {
       <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "32px", flexWrap: "wrap" }}>
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-            <span style={{ width: "26px", height: "26px", borderRadius: "50%", background: "var(--grad)", display: "grid", placeItems: "center", boxShadow: "0 0 16px -3px rgba(0,212,255,0.6)" }}>
-              <span style={{ width: "7px", height: "7px", background: "#02110D", borderRadius: "50%" }} />
-            </span>
+            <BrandLogo size={30} className="footer__logo" />
             <span className="display" style={{ fontWeight: 700, fontSize: "16px", color: "var(--heading)", letterSpacing: "-0.01em" }}>BioNorth</span>
           </div>
           <div className="sans" style={{ fontSize: "11px", color: "var(--faint)", lineHeight: 1.6, maxWidth: "380px" }}>
@@ -18,9 +17,11 @@ export default function Footer() {
           </div>
           <div style={{ display: "flex", gap: "16px", marginTop: "16px" }}>
             <Link to="/" className="mono" style={{ fontSize: "10px", color: "var(--muted-3)", letterSpacing: "1px" }}>HOME</Link>
+            <Link to="/team" className="mono" style={{ fontSize: "10px", color: "var(--muted-3)", letterSpacing: "1px" }}>TEAM</Link>
+            <Link to="/our-product" className="mono" style={{ fontSize: "10px", color: "var(--muted-3)", letterSpacing: "1px" }}>OUR PRODUCT</Link>
             <Link to="/side-projects" className="mono" style={{ fontSize: "10px", color: "var(--muted-3)", letterSpacing: "1px" }}>SIDE PROJECTS</Link>
+            <Link to="/contact" className="mono" style={{ fontSize: "10px", color: "var(--muted-3)", letterSpacing: "1px" }}>CONTACT</Link>
             <a href="https://github.com/bionorthtech" target="_blank" rel="noreferrer" className="mono" style={{ fontSize: "10px", color: "var(--muted-3)", letterSpacing: "1px" }}>GITHUB</a>
-            <a href="mailto:biotech@bionorth.us" className="mono" style={{ fontSize: "10px", color: "var(--muted-3)", letterSpacing: "1px" }}>EMAIL</a>
           </div>
         </div>
 

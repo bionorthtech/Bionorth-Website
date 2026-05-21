@@ -7,6 +7,58 @@ export const HERO_AWARD = {
   subtitle: "University of San Diego Camp · 2025",
 };
 
+export const TRUENORTH_PRODUCT = {
+  name: "TrueNorth Neural Headset",
+  nameLine1: "TrueNorth",
+  nameLine2: "Neural Headset",
+  tagline: "A direct brain-to-muscle connection for movement recovery.",
+  overview:
+    "The TrueNorth Neural Headset is a non-invasive brain-computer interface designed to help individuals with mobility challenges, specifically those experiencing freezing of gait. This device reads brain signals indicating the intention to move and translates them into muscle stimulation commands, creating a direct brain-to-muscle connection that bypasses neurological issues causing movement difficulties.",
+  highlights: [
+    { label: "Non-invasive", detail: "Wearable EEG headset — no surgery required." },
+    { label: "Intent-driven", detail: "Reads brain signals when the patient intends to move." },
+    { label: "Closed-loop", detail: "Translates neural intent into targeted muscle stimulation." },
+  ],
+  image: "truenorth-setup.png",
+  imageAlt: "TrueNorth Neural Headset prototype with EEG sensors, wiring, and stimulation setup on a lab bench",
+};
+
+export const TEAM_MEMBERS = [
+  {
+    name: "Dario M",
+    role: "Founder, BioTech, Inc.",
+    website: "https://bionorth.us/",
+    location: "Lake Mary, FL 32746",
+    email: "biotech@bionorth.us",
+  },
+];
+
+export const CONTACT_SECTIONS = [
+  {
+    category: "General Inquiries",
+    name: "Dario M",
+    role: "Founder, BioTech, Inc.",
+    website: "https://bionorth.us/",
+    location: "Lake Mary, FL 32746",
+    email: "biotech@bionorth.us",
+    color: "#00D4FF",
+  },
+  {
+    category: "Legal Inquiries",
+    name: "Eric Salama",
+    role: "Associate Attorney",
+    organization: "RezLegal",
+    website: "https://www.rezlegal.com",
+    color: "#FFB347",
+  },
+  {
+    category: "Investment Opportunities",
+    name: "Qvanta Group",
+    email: "ceo@qvanta.io",
+    color: "#00FF88",
+  },
+];
+
 export const STATS = [
   { value: "1M+", label: "Americans experience freezing of gait" },
   { value: "~38%", label: "of Parkinson's patients report FOG episodes" },
