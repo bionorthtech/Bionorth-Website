@@ -28,7 +28,7 @@ export const TEAM_MEMBERS = [
     name: "BioNorth Team",
     role: "Founder, BioTech, Inc.",
     website: "https://bionorth.us/",
-    location: "Lake Mary, FL 32746",
+    location: "Flordia",
     email: "biotech@bionorth.us",
   },
 ];
