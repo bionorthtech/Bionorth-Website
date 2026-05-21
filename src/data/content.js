@@ -2,6 +2,11 @@
 // BioNorth — the mission (neurotech freezing-of-gait device)
 // ---------------------------------------------------------------------------
 
+export const HERO_AWARD = {
+  title: "National Innovator Challenge Winner",
+  subtitle: "University of San Diego Camp · 2025",
+};
+
 export const STATS = [
   { value: "1M+", label: "Americans experience freezing of gait" },
   { value: "~38%", label: "of Parkinson's patients report FOG episodes" },
@@ -215,10 +220,10 @@ export const CURRENT_HARDWARE = [
 ];
 
 export const TEAM_HIGHLIGHTS = [
-  { label: "Built in our own time", detail: "A team of high-school students who came together to build this from the ground up." },
+  { label: "Where it started", detail: "A capstone project at Markham Woods Elementary that grew into a team at Lake Mary High School, Florida." },
   { label: "Patent in progress", detail: "Filing a provisional patent on the movement-failure detection method." },
   { label: "Forming an LLC", detail: "Standing up the legal entity to take the work forward." },
-  { label: "Awards & competitions", detail: "Recognized with school awards and competed at science & engineering competitions." },
+  { label: "National Innovator Challenge", detail: "Winner — University of San Diego Camp, 2025." },
 ];
 
 export const CONNECT_CARDS = [
@@ -243,12 +248,22 @@ export const CONNECT_CARDS = [
 ];
 
 export const FUNDING_TARGETS = [
-  { phase: "Now", amount: "$1.2K", source: "Self / Competitions", color: "#FF4444" },
-  { phase: "Phase 2", amount: "$4K", source: "VentureWell / Conrad", color: "#FF8C00" },
-  { phase: "Phase 3", amount: "$314K", source: "NIH STTR Phase I", color: "#FFB347" },
+  { phase: "Now", amount: "$10K", source: "Self Funded", color: "#FF4444" },
+  { phase: "Phase 2", amount: "$125K", source: "Qvanta Group", color: "#FF8C00" },
+  { phase: "Phase 3", amount: "$500K", source: "NIH STTR Phase I", color: "#FFB347" },
   { phase: "Phase 4", amount: "$1.5M", source: "NIH STTR Phase II", color: "#00B050" },
   { phase: "Phase 5", amount: "Series A", source: "Institutional / Strategic", color: "#00D4FF" },
 ];
+
+export const FOOTER_LEGAL = {
+  entity: "BioNorth Tech. LLC",
+  notice:
+    "All biomedical device designs, hardware, firmware, software, detection algorithms, and related intellectual property described on this site are the exclusive property of BioNorth Tech. LLC. All rights reserved.",
+  prohibition:
+    "Unauthorized copying, reproduction, distribution, reverse engineering, or commercial use of any BioNorth biomedical device technology is strictly prohibited.",
+  disclaimer:
+    "This device is a research prototype. Not FDA-cleared. For investigational use only.",
+};
 
 // ---------------------------------------------------------------------------
 // AiMetr — side project

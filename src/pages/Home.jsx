@@ -17,6 +17,7 @@ import {
   TEAM_HIGHLIGHTS,
   CONNECT_CARDS,
   FUNDING_TARGETS,
+  HERO_AWARD,
 } from "../data/content.js";
 
 const img = (n) => `${import.meta.env.BASE_URL}images/${n}`;
@@ -47,7 +48,14 @@ export default function Home() {
 
         <div className="container--wide hero__grid">
           <div>
-            <div className="eyebrow fade-up">BioNorth Tech · Patent Pending</div>
+            <div className="hero__award fade-up">
+              <span className="hero__award-icon" aria-hidden="true">🏆</span>
+              <div>
+                <div className="hero__award-title">{HERO_AWARD.title}</div>
+                <div className="hero__award-sub">{HERO_AWARD.subtitle}</div>
+              </div>
+            </div>
+            <div className="eyebrow fade-up" style={{ animationDelay: "0.06s" }}>BioNorth Tech · Patent Pending</div>
             <h1 className="fade-up" style={{ fontFamily: "var(--display)", fontWeight: 700, fontSize: "clamp(40px, 6vw, 82px)", lineHeight: 1.04, letterSpacing: "-0.03em", color: "var(--heading)", margin: "10px 0 22px", animationDelay: "0.1s" }}>
               Restoring movement<br />
               <span className="grad-text">through neural intelligence</span>
@@ -62,6 +70,7 @@ export default function Home() {
               <button onClick={() => scrollTo("#connect")} className="btn btn--ghost">Get Involved</button>
             </div>
             <div className="pill-row fade-up" style={{ animationDelay: "0.46s" }}>
+              <span className="pill pill--award"><span className="dot" />2025 NATIONAL INNOVATOR CHALLENGE WINNER</span>
               <span className="pill"><span className="dot" />CLOSED-LOOP BCI</span>
               <span className="pill"><span className="dot" />EEG · EMG · FES</span>
               <span className="pill"><span className="dot" />PHASE 0 — ACTIVE</span>
@@ -356,12 +365,13 @@ export default function Home() {
           <div className="grid grid-2" style={{ gap: "64px", alignItems: "center" }}>
             <Reveal>
               <h2 className="section-title" style={{ marginBottom: "24px" }}>
-                Built by high-school students.<br />
-                <em><span className="grad-text">For people who can't walk.</span></em>
+                Built by high-school students<br />
+                <em><span className="grad-text">at Lake Mary High School.</span></em>
               </h2>
               <p className="sans" style={{ color: "var(--muted)", lineHeight: 1.8, marginBottom: "20px", fontSize: "15px" }}>
-                BioNorth is the work of a team of high-school students who came together to build it from the
-                ground up — researching the neuroscience, wiring the hardware, and writing the detection
+                BioNorth is the work of a team of high-school students at Lake Mary High School in Florida —
+                though it started as a capstone project at Markham Woods Elementary. We came together to build it
+                from the ground up — researching the neuroscience, wiring the hardware, and writing the detection
                 algorithm in our own time.
               </p>
               <p className="sans" style={{ color: "var(--muted)", lineHeight: 1.8, marginBottom: "20px", fontSize: "15px" }}>
@@ -370,7 +380,7 @@ export default function Home() {
                 on intent instead of on the absence of response — drove a complete architectural rethink.
               </p>
               <p className="sans" style={{ color: "var(--muted)", lineHeight: 1.8, fontSize: "15px" }}>
-                Along the way we've earned school awards and competed at science and engineering competitions.
+                We won the National Innovator Challenge at the University of San Diego Camp in 2025.
                 Today we're filing a provisional patent and forming an LLC to carry the work forward.
               </p>
             </Reveal>

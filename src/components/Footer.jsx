@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FOOTER_LEGAL } from "../data/content.js";
 
 export default function Footer() {
   return (
@@ -12,8 +13,8 @@ export default function Footer() {
             <span className="display" style={{ fontWeight: 700, fontSize: "16px", color: "var(--heading)", letterSpacing: "-0.01em" }}>BioNorth</span>
           </div>
           <div className="sans" style={{ fontSize: "11px", color: "var(--faint)", lineHeight: 1.6, maxWidth: "380px" }}>
-            Built by a team of high-school students. Lake Mary, Florida.<br />
-            This device is a research prototype. Not FDA-cleared. For investigational use only.
+            Built by high-school students at Lake Mary High School, Florida. Started as a capstone project at Markham Woods Elementary.<br />
+            {FOOTER_LEGAL.disclaimer}
           </div>
           <div style={{ display: "flex", gap: "16px", marginTop: "16px" }}>
             <Link to="/" className="mono" style={{ fontSize: "10px", color: "var(--muted-3)", letterSpacing: "1px" }}>HOME</Link>
@@ -32,9 +33,15 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container" style={{ marginTop: "40px", paddingTop: "20px", borderTop: "1px solid #0A0D14", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
+      <div className="container footer__legal">
+        <div className="mono footer__legal-label">BIOMEDICAL DEVICE IP · {FOOTER_LEGAL.entity.toUpperCase()}</div>
+        <p className="sans footer__legal-text">{FOOTER_LEGAL.notice}</p>
+        <p className="sans footer__legal-text footer__legal-text--strong">{FOOTER_LEGAL.prohibition}</p>
+      </div>
+
+      <div className="container" style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid #0A0D14", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
         <div className="mono" style={{ fontSize: "9px", color: "#2A2A3A", letterSpacing: "1px" }}>
-          © {new Date().getFullYear()} BioNorth Tech. All rights reserved.
+          © 2026 {FOOTER_LEGAL.entity}. All rights reserved.
         </div>
         <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
           <span style={{ width: "5px", height: "5px", background: "#00FF88", borderRadius: "50%", animation: "pulse 1.5s infinite", display: "inline-block" }} />
