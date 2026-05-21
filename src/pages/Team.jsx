@@ -22,8 +22,7 @@ export default function Team() {
             <em><span className="grad-text">BioNorth.</span></em>
           </h2>
           <p className="section-lead" style={{ marginBottom: "0" }}>
-            Built by high-school students at Lake Mary High School — rooted in a capstone project at
-            Markham Woods Elementary and carried forward by BioNorth Tech.
+            Built by high-school students by BioNorth Tech.
           </p>
         </div>
       </section>
