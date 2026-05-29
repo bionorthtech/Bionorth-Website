@@ -157,7 +157,7 @@ trademarks of BioNorth Tech.
 
 ## Tech stack
 
-Vite + React (`react-router-dom`). Single-page app, deployed as a static site to GitHub Pages.
+Vite + React (`react-router-dom`). Single-page app, deployed as a static site to Cloudflare and served at [bionorth.us](https://bionorth.us).
 
 ## Develop
 
@@ -182,19 +182,15 @@ src/
 
 ## Deployment
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds the site and publishes
-it to GitHub Pages at `https://bionorthtech.github.io/BioNorth-Main/`.
+The site is hosted on **Cloudflare** and served at [bionorth.us](https://bionorth.us).
+Pushes to `main` are built and deployed automatically via Cloudflare's Git integration.
 
-**One-time setup:** in repo **Settings → Pages**, set **Source = "GitHub Actions"**.
+Build settings (Cloudflare project):
 
-### Custom domain (bionorth.us) — Cloudflare Pages
+- **Build command:** `npm run build`
+- **Build output directory:** `dist`
+- `wrangler.toml` configures static-asset serving + SPA routing (`not_found_handling = "single-page-application"`).
+- `public/_headers` applies the security headers (CSP, HSTS, etc.).
+- `vite.config.js` uses `base: "/"` for the custom domain.
 
-1. In Cloudflare: **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
-2. Build settings:
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-   - **Deploy command:** leave **empty** (do not use `npx wrangler deploy`)
-3. **Custom domains** → add `bionorth.us` and `www.bionorth.us`
-4. Repo uses `base: "/"` in `vite.config.js`. SPA routing is handled by `wrangler.toml` (`not_found_handling = "single-page-application"`).
-
-If you see a Vite 6 error, the deploy command is set incorrectly — remove it and redeploy.
+> GitHub Pages is no longer used — deployment is handled entirely by Cloudflare.
