@@ -195,6 +195,6 @@ it to GitHub Pages at `https://bionorthtech.github.io/BioNorth-Main/`.
    - **Build output directory:** `dist`
    - **Deploy command:** leave **empty** (do not use `npx wrangler deploy`)
 3. **Custom domains** → add `bionorth.us` and `www.bionorth.us`
-4. Repo uses `base: "/"` in `vite.config.js` and `public/_redirects` for SPA routing
+4. Repo uses `base: "/"` in `vite.config.js`. SPA routing is handled by `wrangler.toml` (`not_found_handling = "single-page-application"`).
 
 If you see a Vite 6 error, the deploy command is set incorrectly — remove it and redeploy.
