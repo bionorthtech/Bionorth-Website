@@ -187,10 +187,14 @@ it to GitHub Pages at `https://bionorthtech.github.io/BioNorth-Main/`.
 
 **One-time setup:** in repo **Settings → Pages**, set **Source = "GitHub Actions"**.
 
-### Custom domain (bionorth.us)
+### Custom domain (bionorth.us) — Cloudflare Pages
 
-To serve from `bionorth.us` instead of the project path:
+1. In Cloudflare: **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
+2. Build settings:
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+   - **Deploy command:** leave **empty** (do not use `npx wrangler deploy`)
+3. **Custom domains** → add `bionorth.us` and `www.bionorth.us`
+4. Repo uses `base: "/"` in `vite.config.js` and `public/_redirects` for SPA routing
 
-1. Set `base: "/"` in `vite.config.js`.
-2. Add `public/CNAME` containing `bionorth.us`.
-3. Configure the domain's DNS and the custom domain in Settings → Pages.
+If you see a Vite 6 error, the deploy command is set incorrectly — remove it and redeploy.
